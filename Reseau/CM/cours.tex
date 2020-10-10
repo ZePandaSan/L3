@@ -110,7 +110,7 @@ On a besoin d’une approche unifiée. \\
 \subsection{Le modèle}
 Le modèle OSI (pen System Interconnection) est théorique. il a été introduit par l’ISO (International Standard Organisation) et définit les fonctionnalités nécessaire pour interconnexion. \\ 
 Le modèle dispose de 7 couches : \\
-\includegraphics{modeleOSI.PNG} \\
+\includegraphics{image/modeleOSI.PNG} \\
 \url{https://sites.google.com/site/6hyperyon9/reseau/modele-osi}
 \\
 \\
@@ -147,7 +147,7 @@ Une machine A veut envoyer un message à une machine B. \\
 Le messages est en-capsulé dans la couche 6. \\
 Le message descend et est en-capsulé dans le niveau en dessous jusqu’à atteindre le niveau 1. \\
 Où le message est envoyé et transite par le réseaux. Quand il arrive sur B le message décapsulé jusqu’à atteindre le niveau 7. \\  
-\includegraphics{modele_OSI.png} \\ 
+\includegraphics{image/modele_OSI.png} \\ 
 \url{https://openclassrooms.com/fr/courses/857447-apprenez-le-fonctionnement-des-reseaux-tcp-ip/854659-le-routage}
 \\
 Remarque : Dans le modèle OSI, les couches sont indépendantes les unes des autres.
@@ -181,7 +181,7 @@ Pour l'IPv4, il y a une façon de représenter les adresses en notations pointé
 \\
 \newpage
 Exemple : \\
-\includegraphics{IPv4.png} \\
+\includegraphics{image/IPv4.png} \\
 \\
 \url{http://math.univ-lyon1.fr/irem/Formation_ISN/formation_reseau/couche_reseau/adressage_ip.html}
 \\
@@ -190,9 +190,9 @@ L’adresse IP est constituée de deux partie : \\
 - Adresse réseau \\
 - Adresse machine \\
 \\
-\includegraphics{Les classes d'adresses}
+\subsection{Les classes d'adresses}
 Il y a 5 classes d’adresses : \\
-\includegraphics{classesIP.jpg} \\
+\includegraphics{image/classesIP.jpg} \\
 \url{http://wapiti.enic.fr/commun/ens/peda/options/ST/RIO/pub/exposes/exposesrio2002/andre-pelloux/penurieadresses.htm} \\
 \\
 Remarque : Pour déterminer la classe regarder les premiers bits suffit. \\
@@ -207,9 +207,9 @@ D 224.0.0.0 → 235 255 255 255 \\
 127.0.0.1 → Boucle locale qui correspond à l’adresses de la machine locale(Même si connecté à aucun réseau) | Programmation native (exemple : Adresse de BDDs) permet d’avoir le même programme qu’on soit connecté ou pas.
 \subsubsection{Adresse de broadcast}
 \subsubsection*{Si adresse = 0}
-\includegraphics{B1.png}
+\includegraphics{image/B1.png}
 \subsubsection*{Si l'adresse est composé seulement de 1 bit}
-\includegraphics{B2.png}\\
+\includegraphics{image/B2.png}\\
 Le message est adressé à toutes les machines connectées au réseau concerné.
 \subsubsection*{Broadcast universel}
 255.255.255.255
@@ -220,12 +220,12 @@ Correspond au réseau sur lequel je suis connecté.
 \subsubsection{Les adresse privées}
 Ce sont des adresses qui son non routables. \\
 Elle est utilisable seulement sur un réseau local (domestique, entreprise, …). \\
-\includegraphics{adresse_pv.png}
+\includegraphics{image/adresse_pv.png}
 
 \subsection{Structure des paquets IP}
 L’unité de base qui va être envoyée sur le réseau un paquet IP (ou datagramme) prend la forme d’une donnée qui est très structurée. \\
 
-\includegraphics{data_ip.png} \\
+\includegraphics{image/data_ip.png} \\
 \\
 \url{http://home.scarlet.be/vinderick.pascal/reseaux_wan/protocoles/tcp_ip/datagramme%20ip.htm} \\
 \\ 
@@ -239,7 +239,7 @@ Exprimée en mots de 32 bits
 
 \subsubsection*{3- Type de service}
 Indique comment le datagramme doit être gérée pour le/les routeur(s). \\
-\includegraphics{Type.PNG}
+\includegraphics{image/Type.PNG}
 
 \subsubsection*{4- Longueur totale}
 Exprimée en octets (max $2^{16}$ )
@@ -416,10 +416,10 @@ $\diamond$\\
 - Plus rapide que TCP \\
 - Se comporte bien derrière les NAT \\
 \subsection{Structure des en-têtes}
-\includegraphics{udp.png}\\
+\includegraphics{image/udp.png}\\
 remarque : Port source est facultatif : Si aucune réponse n'est attendue. \\
 La somme de contrôle n'est pas seulement calculée sur l'en-tête et la donnée UDP un pseudo en-tête est pris en compte pour s'assurer que le datagramme arrive à la bonne destination. \\
-\includegraphics{udp2.png}
+\includegraphics{image/udp2.png}
 \newpage
 \subsection{Fonctionnement général au niveau du system}
 Si un datagramme UDP sur une machine sur un port p pas ouvert il envoie un massage ICMP port fermé. \\
@@ -501,7 +501,7 @@ La réception peut envoyer une notification taille de fenêtre nul. \\
 - Envoie ACK \\
 - Envoie message \\
 - ... \\
-\includegraphics{tcp.png} \\
+\includegraphics{image/tcp.png} \\
 \newpage
 Certains segments partent des données et des infos pour le protocole. \\
 Certains segments transportent seulement des informations de protocole. \\
@@ -568,7 +568,7 @@ Sur 8 bits \\
 \\
 Les types de message de 0 et 8 permettent de déterminer si l'hôte distant est accessible et si il est actifs. Ils permettent également de déterminer si l'hôte distant a les couches 1,2 et 3 fonctionnelles. 
 \\ 
-\includegraphics{icmp.png} 
+\includegraphics{image/icmp.png} 
 \\
 Pour les types de 0 à 8 le code est de 0. \\
 Les données sont optionnels, il faut que ce soit identique à ce qui est reçu dans la réponse permet de savoir si des alterations des données sont intervenues. L'ID et le numéro de séquence permettent d'identifier chacune des demandes d'écho. 
