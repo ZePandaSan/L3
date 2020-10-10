@@ -1,0 +1,45 @@
+Wassim SAIDANE Aurélien Authier 
+
+Serveur UDP : serveur_UDP.c
+Client UDP : client_UDP. 
+
+Exercice 1 : 
+	printf : section 1 (commandes) et 3 (fonction bibliothèques)
+	pwd : section 1
+	read : section 2 (appels systèmes)
+
+Exercice 2 : 
+	write se trouve dans les sections 1 et 2.
+
+Exercice 3 : 
+	Les implémentations c des appels systems comme write fait un appelle en assembleur,
+	alors que printf est une fonction de la bibliotheque stdio.
+
+Exercice 4 : 
+	Ficher serveur_UDP.c
+
+Exercice 5 : 
+	La fonction htons change l'ordre des octets pour les adapter au format réseau.
+
+Exercice 6 : 
+	/
+
+Exercice 7 : 
+	inet_aton() conserve l'addresse au format reseau.
+
+Exercice 8 : 
+	Fichier client_UDP.c 
+	Compilation faite sous windows, retirer \n sous linux (serveur_UDP | ligne 48 )
+
+Exercice 9 : 
+	/
+
+Exercice 10 : 
+	/
+Exercice 11 : 
+	Le protocole UDP n'est pas adapté car il est sans connection et concerve peut de données.
+
+Exercice 12 : 
+	4 sockets, 1 pour le serveur et 3 pour chaque clients.
+
+

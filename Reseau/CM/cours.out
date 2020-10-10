@@ -1,0 +1,35 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Mod\350le en couche OSI}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Le mod\350le}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Principe de fonctionnement}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Avantage et inconv\351nients}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Protocole IP}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Adressage IP}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Les adresses sp\351ciales}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Adresse locale}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Adresse de broadcast}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Les adresse priv\351es}{subsection.3.2}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Structure des paquets IP}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Fragmentation}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.5}{R\351assemblage \(d\351fragmentation\)}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.6}{Routage}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.7}{sou-r\351seau}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.8}{sur-r\351seau}{section.3}% 17
+\BOOKMARK [1][-]{section.4}{Protocole UDP}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{Notion de ports}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Fonctionnement et structure de paquets}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.3}{Structure des en-t\352tes}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.4}{Fonctionnement g\351n\351ral au niveau du system}{section.4}% 22
+\BOOKMARK [1][-]{section.5}{TCP}{}% 23
+\BOOKMARK [2][-]{subsection.5.1}{Fen\352tre glissante \(Sliding Windows\)}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.2}{Notion de port TCP}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.3}{Contr\364le de flux TCP}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.4}{Segment TCP}{section.5}% 27
+\BOOKMARK [3][-]{subsubsection.5.4.1}{\311tablir la connections}{subsection.5.4}% 28
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Donn\351es hors bande}{subsection.5.4}% 29
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Taille des segments TCP}{subsection.5.4}% 30
+\BOOKMARK [3][-]{subsubsection.5.4.4}{Accus\351s de r\351ceptions}{subsection.5.4}% 31
+\BOOKMARK [1][-]{section.6}{Protocole ICMP}{}% 32
+\BOOKMARK [2][-]{subsection.6.1}{Mode de fonctionnement}{section.6}% 33
+\BOOKMARK [2][-]{subsection.6.2}{Types de messages}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.3}{Diff\351rents fonctionnement}{section.6}% 35
