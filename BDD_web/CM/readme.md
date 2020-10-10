@@ -7,3 +7,6 @@ Présentation de l'UE + XML
 
 ## CM2 
 DTD
+
+## CM3 
+XML Schema
