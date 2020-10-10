@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<booker>
+	<award>
+		<author gender="m">Kingsley Amis</author>
+		<title price="50">The Old Devils</title>
+		<year>1986</year>
+	</award>
+	<award>
+		<author gender="f">Margaret Atwood</author>
+		<title price="100">The Blind Assassin</title>
+		<year>2000</year>
+	</award>
+	<award>
+		<author gender="m">John Berger</author>
+		<title price="25">G.</title>
+		<year>1972</year>
+	</award>
+</booker>
