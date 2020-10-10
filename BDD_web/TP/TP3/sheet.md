@@ -32,7 +32,14 @@ On va construire le modèle avec
   ...
 </xsl:template>
 ```
-### La balise match 
+### L'attribut match 
+L'attribut match est utilisé pour associer un modèle à un élément XML. La valeur de l'attribut match est une expression XPath.
+#### Prendre tous le document
+```XML
+<xsl:template match="/">
+  ...
+</xsl:template>
+```
 
 
 
