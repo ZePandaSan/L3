@@ -40,6 +40,25 @@ L'attribut match est utilisé pour associer un modèle à un élément XML. La v
   ...
 </xsl:template>
 ```
+#### Prendre une partie de document
+|TP3 Exercice1 - Question 2|
+```XML
+<xsl:template match="club">
+  ...
+</xsl:template>
+```
+Ici le noeud club est sélectionner
+
+## 5- Contenu du modèle 
+### html 
+On entre les balises html classique
+```XML
+<html>
+  <body>
+    ...
+  </body>
+</html
+```
 
 
 
