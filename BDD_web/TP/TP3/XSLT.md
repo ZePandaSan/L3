@@ -1,4 +1,4 @@
-# commande XSLT  
+# XSLT  
 
 ## 1- En-tête
 Il s'agit de l'en tête XML standard
@@ -82,9 +82,11 @@ Ici la balise XML nom est afficher
 ## 7- Appliquer le template
 Pour afficher le template on va d'abbord construire un modèle en prenant le document (cf 4-) ensuite on va appliquer celui-ci sur un noeud précise ou sur tous le documents.
 ### Sur tous le document
+```XML
 <xsl:template match='/'>
-		<xsl:copy-of select='.'/>
+	<xsl:copy-of select='.'/>
 </xsl:template>
+```
 
 En gros on fait un copier coller
 ### Sur un noeud 
@@ -96,10 +98,8 @@ En gros on fait un copier coller
 </xsl:template>
 ```
 
-Les 7 étapes sont éssentiel pour faire une transformation.
-
-Avant de passer à l'étape 6 on a peut ête besoin de faire quelques opérations.
-## For each 
+## Autre opérations
+### For each 
 Est utilisé pour sélectionner chaque élément XML d'un ensemble de nœuds spécifié. 
 ```XML
 <xsl:for-each select='...'>
@@ -108,13 +108,13 @@ Est utilisé pour sélectionner chaque élément XML d'un ensemble de nœuds sp�
 </xsl:for-each>
 ```
 
-## Sort
+### Sort
 Pour trier la sortie
 ```XML
 <xsl:sort select="..."/>
 ```
 
-## If
+### If
 Pour mettre un test conditionnel.
 ```XML
 <xsl:if test="...">
@@ -122,8 +122,53 @@ Pour mettre un test conditionnel.
 </xsl:if> 
 ```
 
-## Choose
-Pour insérer un test conditionnel multiple par rapport au fichier XML.
+### Choose
+Pour insérer un test conditionnel multiple par rapport au fichier XML. Les balises Where et otherwize doivent être utilisé.
+```XML
+<xsl:choose>
+  <xsl:when test="expression">
+    ...
+  </xsl:when>
+  <xsl:otherwise>
+    ...
+  </xsl:otherwise>
+</xsl:choose>
+```
+
+### Nommer un template 
+On peut nommer un template pour pouvoir le réutiliser dans un autres. Les balises param et copy-of sont utiliser pour définir un paramétre est copier un élément
+```XML
+<xsl:template name='...'>
+	<xsl:param name='...'/>
+	<xsl:copy-of select='...'/>
+</xsl:template>
+```
+
+### Appeler un template 
+Le template nommé est ensuite appelé.
+```XML
+<xsl:template match='/'>
+	<xsl:call-template name='...'>
+		<xsl:with-param name='...' select='...'/>
+	</xsl:call-template>
+</xsl:template>
+```
+
+### Attribut 
+On peut également définir un attribut.
+```XML
+<xsl:attribute name='...'><xsl:value-of select='../@...'/></xsl:attribute>
+```
+
+### Retirer un noeud 
+```XML
+<xsl:template match="node()|@*">
+	<xsl:copy>
+		<xsl:apply-templates select="node()|@*"/>
+	</xsl:copy>
+</xsl:template>
+
+<xsl:template match="..."/>
 
 
 
