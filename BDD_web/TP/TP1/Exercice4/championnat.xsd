@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+	<xs:element name="championnat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="clubs"/>
+				<xs:element ref="journees"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="clubs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="club" minOccurs="20" maxOccurs="20"/> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="club">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nom" type="xs:string"/>
+				<xs:element name="ville" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="journees">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="journee" minOccurs="1" maxOccurs="38"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="journee">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="date" type="xs:date"/>
+				<xs:element name="rencontre" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="num" type="xs:positiveInteger" use="required"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="rencontre">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="clubReceveur" type="xs:string"/>
+				<xs:element name="clubInvite" type="xs:string"/>
+				<xs:element name="score" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
+
+
+
+
