@@ -2,7 +2,9 @@
 Prise de note (j'étais absent lors du cours sur les sous-réseau et sur-réseau)
 
 ## Compiler fichier .tex 
-Linux : 
+### Linux : 
+#### vers pdf
 ``` 
 pdftex cours.tex
 ```
+#### vers html
