@@ -70,9 +70,30 @@ On entre les balises XML classiquz
 ## 6- La séléction de valeur
 On va utiliser la balise value-of.
 ```XML
-<xsl:value-of select="/>
+<xsl:value-of select=""/>
 ```
+### L'attribut select
+L'attribut select contient généralement une expression XPath.
+```XML
+<xsl:value-of select="nom"/>
+```
+Ici la balise XML nom est afficher 
 
+## 7- Appliquer le template
+Pour afficher le template on va d'abbord construire un modèle en prenant le document (cf 4-) ensuite on va appliquer celui-ci sur un noeud précise ou sur tous le documents.
+### Sur tous le document
+<xsl:template match='/'>
+		<xsl:copy-of select='.'/>
+</xsl:template>
+
+En gros on fait un copier coller
+### Sur un noeud 
+```XML 
+<xsl:template match='/'>
+    	<...>
+    		<xsl:apply-templates select="..."/>
+    	</...>
+</xsl:template>
 
 
 
