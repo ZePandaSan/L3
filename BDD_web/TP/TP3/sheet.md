@@ -34,7 +34,7 @@ On va construire le modèle avec
 ```
 ### L'attribut match 
 L'attribut match est utilisé pour associer un modèle à un élément XML. La valeur de l'attribut match est une expression XPath.
-#### Prendre tous le document
+#### Prendre le document
 ```XML
 <xsl:template match="/">
   ...
@@ -57,8 +57,22 @@ On entre les balises html classique
   <body>
     ...
   </body>
-</html
+</html>
 ```
+### XML
+On entre les balises XML classiquz
+```XML
+<club>
+  ...
+</club>
+``` 
+
+## 6- La séléction de valeur
+On va utiliser la balise value-of.
+```XML
+<xsl:value-of select="/>
+```
+
 
 
 
