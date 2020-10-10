@@ -60,7 +60,7 @@ On entre les balises html classique
 </html>
 ```
 ### XML
-On entre les balises XML classiquz
+On entre les balises XML classique
 ```XML
 <club>
   ...
@@ -94,6 +94,36 @@ En gros on fait un copier coller
     		<xsl:apply-templates select="..."/>
     	</...>
 </xsl:template>
+```
+
+Les 7 étapes sont éssentiel pour faire une transformation.
+
+Avant de passer à l'étape 6 on a peut ête besoin de faire quelques opérations.
+## For each 
+Est utilisé pour sélectionner chaque élément XML d'un ensemble de nœuds spécifié. 
+```XML
+<xsl:for-each select='...'>
+	<xsl:sort select='...'/>
+    		<xsl:apply-templates select='...'/>
+</xsl:for-each>
+```
+
+## Sort
+Pour trier la sortie
+```XML
+<xsl:sort select="..."/>
+```
+
+## If
+Pour mettre un test conditionnel.
+```XML
+<xsl:if test="...">
+  ...
+</xsl:if> 
+```
+
+## Choose
+Pour insérer un test conditionnel multiple par rapport au fichier XML.
 
 
 
