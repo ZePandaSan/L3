@@ -1,0 +1,201 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{diagbox}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage[francais]{babel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+\lstset{
+  aboveskip=3mm,
+  belowskip=-2mm,
+  backgroundcolor=\color{darkWhite},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{red},
+  deletekeywords={...},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  framexleftmargin=16pt,
+  framextopmargin=3pt,
+  framexbottommargin=6pt,
+  frame=tb,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  language=C, JavaScript
+  literate=
+  {²}{{\textsuperscript{2}}}1
+  {⁴}{{\textsuperscript{4}}}1
+  {⁶}{{\textsuperscript{6}}}1
+  {⁸}{{\textsuperscript{8}}}1
+  {€}{{\euro{}}}1
+  {é}{{\'e}}1
+  {è}{{\`{e}}}1
+  {ê}{{\^{e}}}1
+  {ë}{{\¨{e}}}1
+  {É}{{\'{E}}}1
+  {Ê}{{\^{E}}}1
+  {û}{{\^{u}}}1
+  {ù}{{\`{u}}}1
+  {â}{{\^{a}}}1
+  {à}{{\`{a}}}1
+  {á}{{\'{a}}}1
+  {ã}{{\~{a}}}1
+  {Á}{{\'{A}}}1
+  {Â}{{\^{A}}}1
+  {Ã}{{\~{A}}}1
+  {ç}{{\c{c}}}1
+  {Ç}{{\c{C}}}1
+  {õ}{{\~{o}}}1
+  {ó}{{\'{o}}}1
+  {ô}{{\^{o}}}1
+  {Õ}{{\~{O}}}1
+  {Ó}{{\'{O}}}1
+  {Ô}{{\^{O}}}1
+  {î}{{\^{i}}}1
+  {Î}{{\^{I}}}1
+  {í}{{\'{i}}}1
+  {Í}{{\~{Í}}}1,
+  morekeywords={*,...},
+  numbers=left,
+  numbersep=10pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},Usine logicielle javascript
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=4,
+  title=\lstname,
+}
+\hypersetup{pdfstartview=XYZ}
+\title{Théorie des graphes - Chapitre 2 : Décomposition en cycles et tour Euleriens }
+\author{}
+\date{}
+\begin{document}
+\maketitle{}
+\tableofcontents
+\newpage
+\section{Caractérisation des graphes bipartis}
+\subsection*{Théorème}
+Un graphe est bipartis si et seulement si il ne contient pas de cycle impair.
+\subsection*{Démonstration}
+\subsubsection*{$\Rightarrow$}
+Si le graphe a un cycle impair alors il n’est pas biparti.
+\subsubsection*{$\Leftarrow$}
+Si le graphe n’a pas de cycle impairs tous les cycles du graphes sont pairs. \\
+Si le graphe est biparti toutes les composantes connexe du graphe sont biparti donc on peut analyser  sur les cas connexes. (1) \\
+Soit un graphe $G=(V,E)$ connexe par (1). \\
+Prenons un sous arbre couvrant $T=(V,F)$ de $G$. \\
+On l’enracine en un sommet quelconque. \\
+On peut définir un nombre partiel sur les sommets du graphe. \\
+deux sommets x et y sont comparables sans T si x est sur le chemin de y à T. \\  
+Partition des sommets qui est obtenu à partir d’un arbre couvrant et une racine arbitraire r. \\
+A sommets distant paire de r dans T. \\
+B sommets distant impaire de r dans T. \\
+Pour toute arête x et y de G. \\
+x et y sont dans deux partie différentes. \\
+\subsection*{Étude de cas}
+\subsubsection*{1- $x,y \in E(T)$}
+Par construction sans perte de généralisé y est à distance paire de r et comme x est relié à y x est à distance impaire de r donc x et y sont dans deux parties différentes.
+\subsubsection*{2- Si $x,y \in E(G) \backslash E(I)$}
+$xy + T$ contient un cycle qui passe par x y. \\
+Si x et y sont dans le même ensemble, la parité su chemin qui relie x à y dans l’arbre sera paire  forme un cycle impaire. \\
+x et y sont dans deux ensembles différents. 
+\newpage
+\section{Décomposition en cycles}
+La décomposition F d’un graphe $G=(V,E)$ est une partition des arêtes de G. $ F=\{ F_1, F_2,…, F_k \}$. \\
+$(F_1 \subseteq E(G); F_i \cap F_j = \emptyset$ $\forall_{i,j} \in \{1,...,k\}, i \neq j\} \cup F_i=E(G))$. \\
+Tous les membres $F_i$ de F respectent une condition (2).
+(2) est un chemin dont chaque arête forment eux mêmes un chemin. \\
+Tous graphe admet une décomposition en chemin. \\
+\subsection*{Lemme}
+Soit $G=(V,E)$ un graphe non orienté, si $ \delta(g) \geq 2$ alors G contient au moins un cycle.
+\subsection*{Preuve}
+Si G contient une boucle c’est vrai, si G ne contient pas de boucle on prend un chemin $P=v_1,v_2,…,v_k$ de longueur maximum. \\
+$v_{k+1}$ n’est pas un autre sommet que les sommets du chemin si non le chemin n’est pas maximum. \\
+$v'$ est un sommet dans $\{v_{1},v_{2},…,v_{k-2}\}$. \\
+$v=v_{j}$. \\
+$(v_k,v_j,v_{j+1},…,v_{k-1},v_k)$ forme un cycle. \\
+\\
+\subsection*{Définition}
+Un graphe $G=(V,E)$ est pair si et seulement si pour chaque sommet v de G on a $d(v)$ pair. \\
+Si G admet une décomposition en cycle alors G est pair.
+\subsection*{Preuve}
+Pour chaque cycle $C_i$ de décomposition, quel que soit le sommet v de G. \\
+$d(C_i)=2$ si $ v \in C_i$, $0$ si $ v \notin C_i$. \\
+\newpage
+\subsection*{Théorème de Veblen}
+G admet une décomposition en cycle si et seulement si G est pair.
+\subsection*{Preuve} 
+\subsubsection*{$\Rightarrow$ }
+Prouvé dans la définition précédente
+\subsubsection*{$\Leftarrow$}
+Par induction descendent sur le nombre de sommets, \\
+Notre graphe, tous les sommets sont de dégrée strictement positif. \\
+Si G est pair à degré positif $\delta(G) \geq 2$ par la lemme précédente G possède un cycle C. \\
+$G’=G \setminus C$ \\
+G’ est un graphe pair car tous les sommets v de c on $d_{G’}(v)=d_{G}(v)-2$. \\
+On considère G’’=G’-tous les sommets de degré 0. \\
+On peut ré appliquer la procédure sur G’’.  \\
+\section{Graphe Eulérien}
+\subsection*{Définition}
+Un graphe est eulérien si et seulement si il admet une marche fermée qui passe exactement une fois sur chaque arêtes.\\
+\\
+\subsection*{Notation}
+ Soit x et y deux sous-ensembles de sommets(pas forcément disjoint) on note E[x,y] l’ensemble des arêtes qui ont une extrémités dans x et l’autre dans y. Le nombre d’arêtes E[x,y]=(?). \\
+Quand y=V \backslash X. \\
+$E=[x,y]=\partial(x)=\partial(y)$ \\
+\subsection*{Définition}
+Une arête e de G (connexe) est dite décontractante si et seulement si G est déconnecté. 
+\subsection*{Proposition}
+Une arête e est déconnectante si et seulement si elle ne participe à aucun cycle de G.
+\newpage
+\subsection*{Problématique}
+Quels sont les graphes qui admettent un tour Eulerien ?
+\subsection*{Condition nécessaire}
+Si on a tour eulérien pour tout sommet v le tour va arriver sur v autant de fois qu’il part de v donc le degré de v est pair. 
+\subsection{Algorithme de Fleury}
+\begin{algorithm}
+\caption{Fleury($G$,$u$): $w$}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe connexe et pair; u un sommet de $G$. 
+\ENSURE $C$ un tour eulérien qui commence à $u$ et termine à $u$.
+\STATE // Var
+\STATE F : Un sous graphe de $G$. 
+\STATE x : Sommet de $G$.
+\STATE C : Chaîne de $G$.
+\STATE // Init
+\STATE $C \leftarrow u$
+\STATE $x \leftarrow u$
+\STATE $F \leftarrow G$
+\STATE // process
+\WHILE {$\delta_{F}(x) \neq 0$}
+\STATE Choisir une arêtes $e=xy$ tel que e n'est pas un isthme de $F$ sauf si c'est la seule possibilité.
+\STATE $C \leftarrow Cey$
+\STATE $x \leftarrow y$
+\STATE $F \leftarrow F \setminus E$
+\ENDWHILE
+\RETURN $C$
+\end{algorithmic}
+\end{algorithm}
+\emph{isthme\footnote{Déconnéctante}}
+\subsubsection{Complexité}
+Voir TD2 
+\subsubsection{Théorème}
+Si G est pair alors l’algorithme de Fleury calcule un tour Eulerien de $G$.
+ 
+\end{document} 
