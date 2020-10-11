@@ -31,3 +31,9 @@ Soit la base de données Nations.xml
 ```
 ## Question 1 
 Générer un fichier html à l'aide d'une transformation XSLT avec un tableau représentant la base de donnée.
+Modèle du fichier à obtenir : Nations_v1.html
+Réponse : EX1Q1_v1.xsl
+
+## Question 2 
+On veut cette fois-ci que le document affiche un tableau qui trie les pays dans l'ordre croissant en fonction de la taille de leurs population. Génerer le fichier html.
+/!\ Le tri numérique ne fonctionne pas avec xsl:sort en effet il ne fait que des tris alphabétique caractère par caractère, dans notre exemple on a donc 143<44<58<64<82 je n'ai pas trouvé de solution. Il faudrait trier ça par XPath et j'ai la flemme :) 
