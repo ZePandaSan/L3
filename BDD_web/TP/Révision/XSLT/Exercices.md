@@ -30,8 +30,4 @@ Soit la base de données Nations.xml
 </Pays>
 ```
 ## Question 1 
-Générer un fichier html à l'aide d'une transformation XSLT avec un tableau présenté comme ceci : 
-| Pays | France | Italie | Espagne | Allemagne | Russie |
----------------------------------------------------------
-| Capital | Paris | Rome | Madrid | Berlin | Russie | 
-| Population en million (année) | 64 | 58 | 44 | 82 | 143 |
+Générer un fichier html à l'aide d'une transformation XSLT avec un tableau représentant la base de donnée.
