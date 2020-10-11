@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pays>
+	<pays>
+		<nom>France</nom>
+		<capital>Paris</capital>
+		
+	</pays>
+	<pays>
+		<nom>Italie</nom>
+		<capital>Rome</capital>
+		
+	</pays>
+	<pays>
+		<nom>Espagne</nom>
+		<capital>Madrid</capital>
+		
+	</pays>
+	<pays>
+		<nom>Allemagne</nom>
+		<capital>Berlin</capital>
+		
+	</pays>
+	<pays>
+		<nom>Russie</nom>
+		<capital>Moscou</capital>
+		
+	</pays>
+</Pays>
