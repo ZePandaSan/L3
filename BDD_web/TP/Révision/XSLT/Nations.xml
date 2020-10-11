@@ -19,6 +19,7 @@
 		<nom>Allemagne</nom>
 		<capital>Berlin</capital>
 		<Population-en-million id="2004">82</Population-en-million>
+	</pays>
 	<pays>
 		<nom>Russie</nom>
 		<capital>Moscou</capital>
