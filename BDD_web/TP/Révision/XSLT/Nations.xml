@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pays>
+	<pays>
+		<nom>France</nom>
+		<capital>Paris</capital>
+		<Population-en-million id="2007">64</Population-en-million>
+	</pays>
+	<pays>
+		<nom>Italie</nom>
+		<capital>Rome</capital>
+		<Population-en-million id="2006">58</Population-en-million>
+	</pays>
+	<pays>
+		<nom>Espagne</nom>
+		<capital>Madrid</capital>
+		<Population-en-million id="2006">44</Population-en-million>
+	</pays>
+	<pays>
+		<nom>Allemagne</nom>
+		<capital>Berlin</capital>
+		<Population-en-million id="2004">82</Population-en-million>
+	<pays>
+		<nom>Russie</nom>
+		<capital>Moscou</capital>
+		<Population-en-million id="2005">143</Population-en-million>
+	</pays>
+</Pays>
