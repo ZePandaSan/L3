@@ -37,3 +37,8 @@ Réponse : EX1Q1_v1.xsl
 ## Question 2 
 On veut cette fois-ci que le document affiche un tableau qui trie les pays dans l'ordre croissant en fonction de la taille de leurs population. Génerer le fichier html.
 /!\ Le tri numérique ne fonctionne pas avec xsl:sort en effet il ne fait que des tris alphabétique caractère par caractère, dans notre exemple on a donc 143<44<58<64<82 je n'ai pas trouvé de solution. Il faudrait trier ça par XPath et j'ai la flemme :) 
+Modèle du fichier à obtenir (avec la Russie qui spawn en haut grace à XSLT) : Nations.html
+Réponse : EX1Q2.xsl
+
+## Question 3 
+On veut supprimer la population de la base de donnée. Généer un fichier XML sans la population.
