@@ -47,3 +47,7 @@ Réponse : EX1Q2.xsl
 
 ## Question 3 
 On veut supprimer la population de la base de donnée. Généer un fichier XML sans la population.
+
+Modèle du fichier à obtenir : Nations_without_pop.xml
+
+Réponse : EX1Q3.xsl
