@@ -20,3 +20,6 @@ installer MiKTex ou TeXmaker
 
 ### Convertir en ligne 
 https://anyconv.com/fr/convertisseur-de-tex-en-pdf/
+
+## HTML preview 
+https://htmlpreview.github.io/ 
