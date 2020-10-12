@@ -101,6 +101,7 @@ h : (4,17) \\
 i : (5,16) \\
 j : (2,15) \\
 \subsection*{Graphe H}
+. \\
 a : (1,12) \\
 b : (2,11) \\
 c : (18,19) \\
@@ -139,5 +140,44 @@ d[u]<d[v]<f[v]
 Arc transverse (u,v): \\
 u : gris \\
 v : noir \\
-f[v]<d[u]  
+f[v]<d[u]  \\
+\subsection*{(3)}
+\section*{Exercice 3}
+Pas en relation de descendance quand ils sont dans des branches différentes. Les intervalles début et fin sont donc disjoint. Deux sommets sont en relation d'ascendances(descendances) si et seulement si $I_u \supset I_v$.
+\newpage
+\section*{Exercice 4}
+Arc sans circuit : Parcours en profondeur dont aucun arc arrière n’est généré. \\
+Fortement connexe : Toutes pairs de sommets x,y on a un chemin de x à y et un chemin de y à x. \\
+\\
+On identifie les Puits=${v \mid d^{+}(v)=0\}$ Pas de descendent (ici d) \\
+On identifie les Sources=${v \mid d^{-}(v)=0\}$ Pas de parents (ici a) \\
+On relie le Puits à la source. \\
+\\
+\includegraphics{Image/PS.PNG}
+\\
+D'une manière général on rajoutes $P \times S$ arcs. Avec P : le nombre de Puits et S : Le nombre de sources. \\
+Problème : La solution est trop coûteuse. \\
+\\
+Il faut donc faire un super puits (relier avec les autres puits) et une super source (relier avec les autres sources). \\
+Le nombre d'arc est donc : \\
+$(\mid P \mid-1)+(\mid S \mid -1)+1=\mid P \mid + \mid S \mid -1$
+\\
+\\
+Montrons maintenant que le graphe est fortement connexe. \\
+Il existe un chemin de a vers b, \\
+- Il existe dans G un chemin de a vers p'(un puits) \\
+- Dans G' on ajoute un chemin de p vers p' (super puits) \\
+- On peut le relier à s (super source) \\
+- Il existe un chemin dans G qui va de s' (une source) à b \\
+- Il existe un chemin de s' à s. \\ 
+\\
+a -> p' -> p -> s -> s' -> b \\
+Faire de même pour aller de b vers a.
+\section*{Exercice 5}
+. \\
+- Réflexive : $xRx$ $x\leq x$ \\ 
+- Antisymétrique : $x \leq y$ et $y \leq x$ $\Rightarrow x=y$\\
+- Transitive : $x \leq y$ et $y \leq z$ $\Rightarrow x \leq z$ \\ 
+\newpage
+
 \end{document}
