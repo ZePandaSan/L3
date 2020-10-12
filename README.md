@@ -9,7 +9,7 @@ pdftex cours.tex
 ```
 #### vers html
 ``` 
-latex2html -local_icons -split=3 rapport.tex
+latex2html -local_icons -split=3 cours.tex
 ``` 
 
 ### Windows :
