@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{diagbox}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage[francais]{babel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+\lstset{
+  aboveskip=3mm,
+  belowskip=-2mm,
+  backgroundcolor=\color{darkWhite},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{red},
+  deletekeywords={...},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  framexleftmargin=16pt,
+  framextopmargin=3pt,
+  framexbottommargin=6pt,
+  frame=tb,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  language=C, JavaScript
+  literate=
+  {²}{{\textsuperscript{2}}}1
+  {⁴}{{\textsuperscript{4}}}1
+  {⁶}{{\textsuperscript{6}}}1
+  {⁸}{{\textsuperscript{8}}}1
+  {€}{{\euro{}}}1
+  {é}{{\'e}}1
+  {è}{{\`{e}}}1
+  {ê}{{\^{e}}}1
+  {ë}{{\¨{e}}}1
+  {É}{{\'{E}}}1
+  {Ê}{{\^{E}}}1
+  {û}{{\^{u}}}1
+  {ù}{{\`{u}}}1
+  {â}{{\^{a}}}1
+  {à}{{\`{a}}}1
+  {á}{{\'{a}}}1
+  {ã}{{\~{a}}}1
+  {Á}{{\'{A}}}1
+  {Â}{{\^{A}}}1
+  {Ã}{{\~{A}}}1
+  {ç}{{\c{c}}}1
+  {Ç}{{\c{C}}}1
+  {õ}{{\~{o}}}1
+  {ó}{{\'{o}}}1
+  {ô}{{\^{o}}}1
+  {Õ}{{\~{O}}}1
+  {Ó}{{\'{O}}}1
+  {Ô}{{\^{O}}}1
+  {î}{{\^{i}}}1
+  {Î}{{\^{I}}}1
+  {í}{{\'{i}}}1
+  {Í}{{\~{Í}}}1,
+  morekeywords={*,...},
+  numbers=left,
+  numbersep=10pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},Usine logicielle javascript
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=4,
+  title=\lstname,
+}
+\hypersetup{pdfstartview=XYZ}
+\title{Théorie des graphes - Chapitre 3 : Parcours de graphes }
+\author{}
+\date{}
+\begin{document}
+\maketitle{}
+\tableofcontents
+\newpage
+Un parcours va partir d’un sommet. \\
+-Il va calculer un ordre de découverte/parcours \\
+-Arbre de parcours/Arbre d’exploration \\
+\section{Parcours générique}
+\begin{algorithm}
+\caption{PG($G$,$u$): $GO$}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe; $u$ un sommet 
+\ENSURE $GO$ un graphe orienté avec tous les points marqué.
+\STATE // var 
+\STATE $L$ : Une liste 
+\STATE $x,y$ : Des sommets 
+\STATE // init
+\STATE NouvelleListe($L$) // L est vide 
+\STATE Marquer($u$) // Marquer serait une fonction permettant de dire qu'on est passé par ce sommet.
+\STATE $L \leftarrow u$ // On ajoute u à la liste L 
+\STATE // process
+\WHILE{$\neg$ EstVide(L)} 
+\STATE $x \leftarrow $TeteList($L$) // On prend la tête de la liste
+\STATE $GO \leftarrow $ExtrairePremier($L$) // On retire la première valeur de la liste \\
+\textbf{foreach} $y \in$ Voisinage($x$,$g$) \textbf{do} \\
+\hspace{0.5cm} \textbf{if} nonMarquer($y$) \\
+\hspace{1cm} Marquer($y$) \\
+\hspace{1cm} $L \leftarrow y$ \\
+\hspace{0.5cm} \textbf{end if} \\
+\textbf{end foreach}
+\ENDWHILE 
+\RETURN $GO$
+
+\end{algorithmic}
+\end{algorithm}
+\url{http://www-verimag.imag.fr/~wack/ALGO5/Cours10.pdf} \\
+L’algorithme générique permet de déterminer si un graphe est connexe. \\
+\\
+L’algorithme maintient 3 catégories de sommets \\
+1) Les sommets traités \\
+2) Les voisins des sommets traités \\
+3) Les sommets non traités \\ 
+
+\newpage
+\section{Parcours en largeur (Breadth First Search)}
+\subsection{L'algorithme}
+\begin{algorithm}
+\caption{BFS($G$,$u$):}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe; $u$ un sommet. 
+\STATE // var
+\STATE $F$ : Une file 
+\STATE // init 
+\STATE NouvelleFile($F$)
+\STATE $F$.enfiler($u$)
+\STATE Marquer($u$)
+\STATE // process
+\WHILE{$\neg $estVide($F$)}
+\STATE $u \leftarrow f$.defiler()
+\PRINT u
+\FORALL{$t \leftarrow $Voisin($u$) $\in G$}
+\IF{$\neg$Marquer($S$)}
+\STATE $F$.enfiler($t$)
+\STATE Marquer(t)
+\ENDIF
+\ENDFOR
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+\url{https://en.wikipedia.org/wiki/Breadth-first_search} \\
+Application : Déterminer un plus cours chemin dans un graphe univalué. Déterminer facilement si un graphe est Biparti.  
+\subsection{Complexité}
+O(n+m) \\
+Chaque sommet va être extrait une seule fois de L et ça va déclencher son traitement. (tous ce qui à l’intérieur du while). \\
+- extraire de la liste et supprimer O(1) \\
+- foreach va être exécutée O(d(v)) fois \\
+\\
+La complexité va être dominée par $\sum d(v)=2m$
+\subsection{Propriété}
+On va noter $\delta(u,v)$ la longueur du plus court chemin.
+\\
+\underline{Lemme 1 :} \\
+Soit $G=(V,E)$ un graphe et $s$ un sommet pour toute arête $u$, $v \in E(G)$ on a l’inégalité : \\
+(1) $\delta(s,v) \leq \delta(s,u)+1$ \\
+\\
+\underline{Lemme 2 :} \\
+Soit $G(V,E)$ et son sommet de départ on a l’inégalité : \\
+ (2) $\delta(s,v) \leq l[v] \forall v \in V(G) \neq s$ \\
+ \\ 
+\underline{Lemme 3 :} \\
+A tout instant t, la liste est composé des sommets $(v_1,v_2,… ,v_k)$ : \\
+- $l[vk] \leq l[v_1]+1$ \\
+- $l[v_i+1] \forall i \in {1,..,k-1}$ \\
+\\
+\underline{Théorème : } \\
+Soit $G=(V,E)$ un graphne non orienté connexe de sommet $s$ : \\
+A la fin de l’algo $l[v]=\delta(s,u)$. \\
+\section{Parcours en profondeur(Depth-first search)}
+\subsection{L'algorithme}
+\subsubsection{Implémentation récursive}
+\begin{algorithm}
+\caption{Explorer}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe; $u$ un sommet.
+\STATE Marquer($s$)
+\PRINT $s$
+\FORALL {$t$ voisin de $s$}
+\IF{$\neg$Marquer($s$)}
+\STATE{Explorer($G,t$)
+\ENDIF
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}   
+\begin{algorithm}
+\caption{DFS\_recursive($G$,$u$):}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe; $u$ un sommet. 
+\FORALL{$u \in G$}
+\IF {$\neg$Marquer($S$)}
+\STATE Explorer($G,s$)
+\ENDIF
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+\url{https://en.wikipedia.org/wiki/Depth-first_search}
+\newpage
+\subsubsection{Implémentation classique}
+\begin{algorithm}
+\caption{DFS($G$,$u$):}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe; $u$ un sommet. 
+\STATE // var
+\STATE $P$ : Une pile
+\STATE $u$, $v$ : Deux sommets 
+\STATE // init 
+\STATE NouvellePile($P$)
+\STATE $P$.empiler($P$)
+\STATE // process
+\WHILE{$\neg$ ($P$.estVide())}
+\STATE $s \leftarrow p$.depiler()
+\IF {$\neg$ Marque($u$)}
+\STATE Marquer(S)
+\FORALL{Arrêtes de $u$ à $v$ $\in G.$Adjacent($u$)}
+\STATE $P$.enfiler($u$)
+\ENDFOR
+\ENDIF
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+\url{https://en.wikipedia.org/wiki/Depth-first_search}
+\subsection{Complexité}
+Chaque sommet v est traité exactement une fois. \\
+Le traitement de chaque sommet $o(d(v)$ donc $o(n+m)$
+\subsection{Propriété}
+\underline{Théorème : }
+ Dans un parcours en profondeur d’un graphe (oriente ou pas) pour toutes paire de sommets $u$ et $v$ les intervalles $I_u$ et $I_v$ ($I_x=[d[x],f[x]]$) \\
+ Satisfont exactement une des conditions suivantes : \\
+1) $I_u$ et $I_v$ sont disjoint \\
+2) $I_u$ est contenu dans $I_v$ \\
+3) $I_v$ est contenu dans $I_u$ \\
+ \\
+ \underline {Classement des arcs : } \\
+1) Arcs de liaisons : Relation de parenté \\
+2) Arcs arrières : (u,v) si u est un descendant de v \\
+3) Arcs avant : (u,v) v est un descendant de u \\
+4) Arcs transverse : Tous les autres \\
+\\
+\underline{ Théorème du chemin blanc : } \\
+Dans une arborescence de parcours en profondeur un sommet $u$ est descendant de $v$ si ai moment où v est découvert (à l’instant $d[v]$) il existe dans un chemin uniquement composé de sommets de $V$ à $u$. \\
+
+ 
+
+\end{document} 
