@@ -254,7 +254,60 @@ Le traitement de chaque sommet $o(d(v)$ donc $o(n+m)$
 \\
 \underline{ Théorème du chemin blanc : } \\
 Dans une arborescence de parcours en profondeur un sommet $u$ est descendant de $v$ si ai moment où v est découvert (à l’instant $d[v]$) il existe dans un chemin uniquement composé de sommets de $V$ à $u$. \\
+\newpage
+\underline{Lemme : } \\
+Un graphe $G=(V,E)$ orienté est dans circuit si et seulement si lors d’un parcours en profondeur aucun arc arrière n’est généré. \\
+\section{Tri topologique}
+\subsection{L'algorithme}
+\begin{algorithm}
+\caption{Tri\_topologique($G$,$u$):}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe, $u$ un sommet.
+\STATE $L \leftarrow \emptyset$ 
+\STATE DFS($G,u$) 
+\STATE Lorsque le traitement d’un sommet $v$ est terminé : Insérer $v$ au début de $L$. 
+\end{algorithmic}
+\end{algorithm}
+\subsection{Application}
+Trouver un ordre total des sommets d’un graphe orienté tel que tous les sommet v apparaissent avant dans l’ordre.
+\subsection{Propriété}
+\underline{Théorème : }
+L’algorithme de tri topologique calcul un tri topologique de G si et seulement si G est sans circuit. \\
+\\
+\section{Composante fortement connexes : }
+\subsection{Définition}
+Un graphe est fortement connexe si et seulement pour toutes pairs de sommets x,y on a un chemin de x à y et un chemin de y à x. \\
+Si G n’est pas fortement connexe on va pouvoir identifier ses composantes fortement connexe. \\
+\\
+Une composante fortement connexe est un sous ensemble de sommets maximal $C \subseteq V(G)$ tel que $\forall x,y\in C$ il existe un chemin de $y$ vers $x$.\\ 
+\\
+L’ensemble des composantes fortement connexe forme une partition de l’ensemble des sommets de $G$. \\ 
+\newpage
+\subsection{Graphe des composantes fortement connexe : }
+Graphe dont les sommets sont les composantes fortement connexes de $G$. On un arc $C_{i}$ vers $C_{j}$. \\
+Le graphe des composantes fortement connexe d’un  graphe sans circuit est isomorphe. \\
+\\
+Soit $G=(V,E)$ un graphe orienté, \\ 
+$G^{T}=(v,E^T)$ le graphe transposé/renversé de $G$, qui est obtenu en renversant le sens de tous les arcs. \\
+\\
+$G$ et $G^{T}$ ont les mêmes composantes fortement connexes. 
+\subsubsection{L'algorithme : }
+\begin{algorithm}
+\caption{Composante fortement connexe($G$,$u$):}
+\begin{algorithmic}
+\REQUIRE $G$ un graphe orienté
+\ENSURE $C=(c_{1},C_{2},..,c_{k})$ les composante fortement connexe
+\STATE 1. Appeler DFS($G,u$) pour calculer les dates de fin de chaque sommet
+\STATE 2. Calculer $G^{T}$
+\STATE 3. Appeler DFS($G^{T},u$) en traitant les sommets dans la boucle principale(DFS) par ordre décroissant
+\STATE 4. Imprimer les arborescences.
+\end{algorithmic}
+\end{algorithm}
+\subsubsection{Propriété}
+\underline{Lemme : }\\
+Soit $c$ et $c’$ deux composantes fortement connexes de $G$. On suppose qu’il y a un axe $(uv) \in E[G]$ tel que $u \in C$ et $v \in C’$ alors $f(c) > f(c’)$
 
- 
+\underline{Theoreme : }\\
+L’algorithme calcule les composantes connexes des graphes. 
 
 \end{document} 
