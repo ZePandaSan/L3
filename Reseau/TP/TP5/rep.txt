@@ -42,4 +42,8 @@ Exercice 11 :
 Exercice 12 : 
 	4 sockets, 1 pour le serveur et 3 pour chaque clients.
 
+Exercice 15 : 
+	L'appel systeme recv() utilisant le socket client peut verifier si le client répond. 
 
+Exercice 16 : 
+	Les clients suivants sont mis en attente jusque la limite définie par l'appel systeme listen(), et au dela la connection est refusée.
