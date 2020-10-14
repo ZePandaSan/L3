@@ -640,5 +640,98 @@ La demande part avec seulement l'horodatage d'émission. \\
 Le récepteur en premier lieu il renseigne l'heure de réception \\
 L'heure de transmission est indique au moment de l'émission \\
 $\hookrightarrow$ Les temps sont indiqués en secondes depuis 1970. 
-\subsection{Différents fonctionnement}
+\section{\underline{Protocole de routages}}
+Protocole de routage à l'inérieur d'un système autonome \\
+$\hookrightarrow$ Réseau géré par une entité ou une entreprise. L'entité est seule responsable de la politique de routage à l'intérieur.\\
+\\
+Il existe plusieurs protocole de routage interne : \\
+- RIP \\
+- OSPF \\
+\newpage
+On a vu dans le chapitre sur le protocole IP que le routage est assuré par les tables de routages. \\
+On n'a pas vu : \\
+- Comment sont obtenues les tables \\
+- Mise à jour des tables \\
+\\
+Si le réseau est constitué de peut d'entités on peut gérer les tables manuellement.
+\\
+Si le réseau est constitué de peut d'entités on peut gérer les tables manuellement. \\
+La gestion se complexifie en présence de plusieurs entités. 
+\subsection{RIP}
+RIP applique un routage à vecteur de distance.
+\\
+Dans le table de routage on a les informations classiques. \\
+- Adresse réseau \\
+- Adresse sous réseau \\
+- Routeur \\
+- Distance (en nombre de liens vers l'autre réseau) \\
+\\
+\underline{Exemple : } \\
+\begin{tabular}{|c|c|c|}
+\hline 
+\textbf{Réseau}  & \textbf{Route} & \textbf{Distance} \\ 
+\hline 
+0 & Directe & 0 \\ 
+\hline 
+1 & Routeur C & 2 \\ 
+\hline 
+3 & Routeur B & 1 \\ 
+\hline 
+\end{tabular} \\
+Pour mettre à jour les tables de routages. \\
+On va utiliser les vecteurs de distances (même règle que Bellman (théorie des graphes)). \\
+Si un routeur $X$ pour un réseau $\alpha$ constate que le routeur $Y$ connaît une meilleure route pour $\alpha$. \\
+Une route est meilleure si $d(Y,\alpha)+1<d(x,\alpha)$. \\
+Pour faire ces mises à jours le protocole envoies les tables de routage à chaque routeur voisin. \\
+Les tables de routages de cœur de réseaux sont très grandes (donc beaucoup d'échanges de donnée).\\
+Le temps de convergence des tables de routage est très long. \\
+RIP, par défaut l'échanges des tables se fait toutes les 30 secondes. \\
+\\
+On ne met pas à jour une route si on ne trouve pas de meilleure route. \\
+\\
+Si un routeur toutes en panne, \\
+chaque routeur qui as reçu l'information de mise à jour  arme un temporisateur (en général 180s) pour chaque route mise à jour. Si au bout des 180 secondes la n'est pas confirmé au bout des 18. secondes il revient à l'état d'avant.
+\subsubsection*{Inconvénients}
+. \\
+1) RIP ne détecte pas les boucles \\
+2) RIP utilise des longueurs maximales de 16 pour les routes. \\
+3) Convergence lente \\
+Pour tous les défauts identifiés de RIP, des modifications ont été proposé mais elles ne suffisent pas
+\newpage
+\subsection{OSPF(Open Shortest Path First)}
+OSPF est un protocole à états de liens. \\
+\underline{Contrainte : } \\
+Chaque routeur qui participe au protocole doit connaitre la topologie du réseau. \\
+\\
+Chaque routeur connaitre le graphe du réseau. \\
+Celà ce fait par envoie de messages. Chaque routeur accomplit deux tâches : \\
+- Tester l'état de ses liaisons vers ses voisins \\
+- Envoyer sur le réseau l'état de ses liaisons de manière fréquente \\
+\\
+Du coup chaque routeur peut maitre à jour sa copie locale du réseau. \\
+$R_{11}$ reçoit un message de $R_{14}$ qui indique que ses voisins sont $R_2$ et $R_4$.\\
+\\
+Le temps de convergence sera amélioré. \\
+\underline{Taille de message : } \\
+Chaque routeur envoie seulement ses voisins, la taille de message de R dépend du nombre de voisin de R. \\
+Par opposition dans RIP, les messages peuvent dépendre du nombre total de routeurs sur le réseau. \\
+\\
+Pour tester si un lien est fonctionnel chaque routeur contacte ses voisins. Si ils répondent le lien est up (sinon down). \\
+Au total m message sont envoyés et la taille cumulé des messages est O(m). \\
+\\
+Une fois chaque routeur à sa nouvelle copie du réseau il recalcule les plus courts chemin (BFS). 
+\subsubsection{Avantages}
+. \\
+- Chacun fait son calcul \\
+- Messages petit
+\subsubsection{Inconvénient}
+. \\
+- Stocker tous le graphe \\
+- ça prend un peu de temps pour reconstruire le graphe
+\subsubsection{Autre particularité}
+. \\
+- Ouvert \\
+- Fournit un routage par type de services (haut débit, minimiser la latence, regarder le type de service et la destination). \\
+- Autorise l'équilibrage de charge entre A et B (Si il y a plusieurs routes de même longueur). \\
+- Possibilité de fournir des zones et d'avoir des politiques spécifiques à l'intérieur des zones. (Échanges authentifiés,)
 \end{document}
