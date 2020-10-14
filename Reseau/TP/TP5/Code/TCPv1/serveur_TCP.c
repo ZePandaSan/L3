@@ -12,29 +12,34 @@
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    puts("usage : ./tcp_serv [port]");
+    puts("Il faut un seul et unique port");
     exit(1);
   }
+  
   int s = socket(AF_INET, SOCK_STREAM, 0);
+  
   if (s < 0) {
-    dprintf(2, "Socket failed\n");
+    dprintf(2, "Erreur : Socket\n");
     exit(1);
+  
   }
+  
   struct sockaddr_in sin;
   sin.sin_family = AF_INET;
   sin.sin_port = htons((unsigned short)atol(argv[1]));
   sin.sin_addr.s_addr = htonl(INADDR_ANY);
+  
   for (int i = 0; i < 8; i++) {
     sin.sin_zero[i] = 0;
   }
 
   if (bind(s, (struct sockaddr *)&sin, sizeof(struct sockaddr_in)) < 0) {
-    dprintf(2, "Bind failed\n");
+    dprintf(2, "Erreur : Bind\n");
     exit(1);
   }
 
   if (listen(s, 5) < 0) {
-    dprintf(2, "Listen failed\n");
+    dprintf(2, "Erreur : Connection\n");
     exit(1);
   }
 
@@ -47,33 +52,37 @@ int main(int argc, char **argv) {
   socklen_t clen;
   int cs;
 
-  ssize_t msg_len;
+  ssize_t taille_msg;
   
   while (1) {
-    puts("Waiting for client...");
+    puts("En attente du client...");
     if ((cs = accept(s, &caddr, &clen)) < 0) {
-      dprintf(2, "Accept failed\n");
+      dprintf(2, "Client non trouvé\n");
       exit(1);
     }
 
-    puts("Client found !");
+    puts("Client trouvé !");
 
     while (1) {
       if (!strncmp(buf, "quit",5)) {
-	puts("Connection closed by client");
-	close(s);
-	return (0);
+        puts("Fin de la communication avec le client");
+        close(s);
+        return (0);
       }
+      
       bzero(buf, BUF_SIZE + 1);
-      if ((msg_len = recv(cs, (void *)buf, BUF_SIZE, 0)) <= 0) {
-	printf("Client disconnected : %s\n", strerror(errno));
-	break ;
+      
+      if ((taille_msg = recv(cs, (void *)buf, BUF_SIZE, 0)) <= 0) {
+        printf("Client deconnecté : %s\n", strerror(errno));
+        break ;
       }
-      if (send(cs, "Message received\n", 18, 0) < 0) {
-	puts("Connection with client lost");
-	break ;
+      
+      if (send(cs, "Message reçu\n", 18, 0) < 0) {
+        puts("Connection avec le client perdu");
+        break ;
       }
-      printf("received => %s [length : %zd]\n", buf, msg_len);
+      
+      printf("Reçu => %s [taille du message : %zd]\n", buf, taille_msg);
     }
   }
   
