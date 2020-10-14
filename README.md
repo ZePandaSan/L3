@@ -24,4 +24,3 @@ https://cloudconvert.com/
 ## HTML preview 
 https://htmlpreview.github.io/ 
 
-[[embed url=http://www.youtube.com/watch?v=6YbBmqUnoQM]]
