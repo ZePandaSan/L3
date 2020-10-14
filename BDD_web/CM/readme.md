@@ -17,5 +17,5 @@ XPath
 ## CM5
 XSLT
 
-# CM6
+## CM6
 XQuery et ElementTree (Python)
