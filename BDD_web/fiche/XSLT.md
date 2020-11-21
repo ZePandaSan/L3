@@ -1,5 +1,31 @@
 # XSLT  
-
+- [XSLT](#xslt)
+  - [1- En-tête](#1--en-tête)
+  - [2- Feuille de style](#2--feuille-de-style)
+  - [3- Sortie](#3--sortie)
+    - [Vers html](#vers-html)
+    - [Vers XML](#vers-xml)
+  - [4- Construction du modèle](#4--construction-du-modèle)
+    - [L'attribut match](#lattribut-match)
+      - [Prendre le document](#prendre-le-document)
+      - [Prendre une partie de document](#prendre-une-partie-de-document)
+  - [5- Contenu du modèle](#5--contenu-du-modèle)
+    - [html](#html)
+    - [XML](#xml)
+  - [6- La séléction de valeur](#6--la-séléction-de-valeur)
+    - [L'attribut select](#lattribut-select)
+  - [7- Appliquer le template](#7--appliquer-le-template)
+    - [Sur tous le document](#sur-tous-le-document)
+    - [Sur un noeud](#sur-un-noeud)
+  - [Autre opérations](#autre-opérations)
+    - [For each](#for-each)
+    - [Sort](#sort)
+    - [If](#if)
+    - [Choose](#choose)
+    - [Nommer un template](#nommer-un-template)
+    - [Appeler un template](#appeler-un-template)
+    - [Attribut](#attribut)
+    - [Retirer un noeud](#retirer-un-noeud)
 ## 1- En-tête
 Il s'agit de l'en tête XML standard
 ```XML
@@ -170,6 +196,3 @@ On peut également définir un attribut.
 
 <xsl:template match="..."/>
 ```
-
-
-
