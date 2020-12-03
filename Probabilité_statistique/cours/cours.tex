@@ -1,0 +1,287 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+
+\title{Probabilités et Statistiques}
+\date{}
+\begin{document}
+    \pagenumbering{gobble}
+    \maketitle
+    \tableofcontents
+    \newpage
+    \pagenumbering{arabic}
+    \section*{Modalités d'examen}
+        \begin{itemize}
+            \item[--] Première session (Examen terminal : 75\% (10 décembre), TP : 25\%)
+            \item[--] Deuxième session (Examen terminal : 100\%)
+        \end{itemize}
+    \section{Introduction aux probabilités}
+        \subsection{Expérience aléatoire}
+            Définition : Une expérience aléatoire (ou épreuve) est tout phénomène dont on ne 
+            peut pas prédire l'issue avec certitude.
+            Exemples :
+                \begin{itemize}
+                    \item[--] Lancer d'une pièce
+                    \item[--] Lancer d'un dé à six faces 
+                    \item[--] Lancer d'une pièce trois fois de rang 
+                \end{itemize}
+        \subsection{Ensemble fondamental $\Omega$}
+            L'ensemble fondamental ou Univers est l'ensemble de toutes les issues possible
+            d'une expérience aléatoire.
+        \subsection{Evènement élémentaire $\omega$}
+                Définition : Un événement élémentaire $\omega$ est toute issue d'une 
+                expérience aléatoire, i.e tout élément $\omega$.
+        \subsection{Evenement}
+                Définition : Un évènement, représenté par une lettre majuscule, est tout
+                sous-ensemble de $\Omega$, i.e toute réunion d'éléments élémentaires.
+        \subsection{Ensembliste vs Probabiliste}
+                \begin{itemize}
+                    \item[--] L'ensemble des évènements coïncide avec l'ensemble
+                    $p(\Omega)$ des parties de l'ensemble fondamental $\Omega$.
+                    \item[--] Un évènement est réalisé si un des évènements élémentaires
+                    le constituant est réalisé 
+                    \item[--] Etant donnés
+                    \begin{itemize}
+                        \item[--] Une expérience aléatoire d'univers $\Omega$
+                        \item[--] Un évènement A $\in \Omega$
+                    \end{itemize}
+                    \item[--] Supposons que
+                    \begin{itemize}
+                        \item[--] L'expérience aléatoire est répétée N fois
+                        \item[--] N(A) correspond au nombre de fois où l'évènement A est
+                        réalisé 
+                    \end{itemize} 
+                \end{itemize}
+                
+        \subsection{Probabilités}
+            \subsubsection{Probabilité}
+                On appelle (mesure de) probabilité toute application P sur $P(\Omega)$ telle que :
+                \begin{itemize}
+                    \item[--] P(A) $\in$ [0,1] pour tout évènement $A \in p(\Omega)$
+                    \item[--] P($\Omega$)=1 (i.e propriété de normalisation)
+                    \item[--] P($A \cup B$)=P(A)+P(B) pour toute paire d'évènements 
+                    incompatibles A et B (propriété d'additivité)
+                \end{itemize}
+            \subsubsection{Espace de probabilité}
+                Le couple ($\Omega$, P) s'appelle espace de probabilité
+            \subsubsection{Probabilité (def 2)}
+                Une (loi de) probabilité sur l'ensemble $\Omega$={$w_1,...,w_n$} est 
+                la donnée de ($p_1,...,p_n$) $\in$ $[0,1]^n$ tel que $\sum_{i=1}^{n} p_i=1$
+            \subsubsection{Exemple}
+                Un entraineur de football pense qu'il y a 3 chances contre 2 que son 
+                équipe remporte le prochain match, tandis que les cotes contre une 
+                défaite ou un nul de son équipe sont de 4 contre 1 et de 9 contre 1, respectivement.
+                \begin{itemize}
+                    \item[--] Décrire l'ensemble des évènements élémentaires.
+                    $\Omega$={victoire,nul,défaite}
+                    \item[--] Quelles sont leurs proba ? 
+                    P(Victoire)=3/5, P(nul)=1/5, P(défaite)=1/10
+                    \item[--] Définissent-elles une loi de probabilité ? 
+                    P(victoire)+p(nul)+p(défaite)>1 donc non
+                \end{itemize}
+        \subsection{Univers non dénombrable}
+            - Expérience aléatoire avec un nombre infini d'issues (e.g, lancer un dé
+            jusqu'à obtenir un pile)\\
+            - Propriété d'additivé
+            \subsubsection{Fréquence relative}
+                la fréquence relative de A est égale au ratio $N(A)/N$
+            \subsubsection{Probabilités de A}
+                La fréquence relative semble se stabiliser près d'une valeur réelle
+                P(a) lorsque N devient très grand (loi empyrique) : le nombre A\dots\\
+                Propriété d'additivité : $P(\cup_{i=1}^{\infty} A_{i}) = \sum_{i=1}^{\infty} P(A_{i})$
+        \subsection{Espace probabilisé}
+            \subsubsection{$\alpha$-algèbre}
+                Une collection A de sous ensembles de $\Omega$ est un $\alpha$-algèbre
+                (ou tribu) si :
+                \begin{itemize}
+                    \item[--] $\Omega$ $\in$ $A$
+                    \item[--] A $\in$ $A$ implique A$^c$ $\in A$ 
+                    \item[--] Ab = $A$
+                    \item[--] si {Ai} est une séquence finie ou infinie de Ab alors UiAi(?) $\in$ Ab
+                \end{itemize}
+                Un espace probabiliste est un triplet (R, Ab, P) ou ab est $\alpha$-algébre non vide 
+                de sous ensembles de $\Omega$ et P est une application de Ab dans |R telle que :
+                \begin{itemize}
+                    \item[--] P($\Omega$) = 1
+                    \item[--] 0 $\le$ P(A) $\le$ 1 
+                \end{itemize}
+        \subsection{Propriétés des probabilités}
+            A$_1$,...,A$_n$ $\in$ A, implique $\cup^{n}_{i=1}$ A$_i$ $\in$ A$_i$, et $\cap^{n}_{i=1}$ A$_i$ $\in$ A\\
+            P($\emptyset$)=0\\
+            P(A$^C$)=1-P(a)\\
+            P(A) $\le$ P(B) pour A,B $\in$ A, , A c B\\
+            P(A$\cup$B)=P(A)+P(B)-P(A$\cap$B)
+            \subsubsection{Inégalité de Boole}
+                Si {A$_i$} est une séquence d'événements, alors P($\cup$ A$_i$) $\le$ $\sum$ P(A$_i$)
+            \subsubsection{Formule de Poincaré}
+                P($\cup_{r=1}^{n}$ A$_i$)=$\sum_{i=1}^{n}$(-1) ... 
+                \paragraph{Exemples}
+                    \begin{itemize}
+                        \item[--] Considerons n lancer d'une pièce et soit $A$ l'évènement
+                        "Face à été obtenu au moins une fois". Quelle est la valeur de $P(A)$?
+                        P(A)=1-P(A$^c$)=1-$1\over{2^n}$
+                        \item[--] Une carte est sélectionnée aléatoirement d'un jeu de 52 cartes.
+                        Qeulle est la probabilité que la carte sélectionnée soit un roi un pique ?
+                        A={roi}, B={pique}
+                        $P(A \cup B)$=$P(A)+P(B)-P(A \cap B)$=$4\over{52}$+$13\over{52}$-$1\over{52}$=$4\over{13}$ 
+                    \end{itemize}
+        \subsection{Loi uniforme}
+            \subsubsection{Définition}
+                Soit $\Omega$ un ensemble fini. Une loi est dite uniforme (ou quiprobable) si
+                les probabilités de tous les éènements élémentaires sont les mêmes, i.e, valent
+                $1\over{\mid \Omega \mid}$
+            \subsubsection{Propriété}
+                Pour tout évènement A, $P(A)$=${\mid A \mid}\over{\mid \Omega \mid}$
+        \subsection{Cardinaux et suites}
+            \subsubsection{Proposition}
+                \begin{itemize}
+                    \item[--] $\mid A \times B \mid$=$\mid A \mid$.$\mid B \mid$
+                    \item[--] $\mid A \cup B\mid$=$\mid A \mid$+$\mid B \mid$ - $\mid A \cap B \mid$
+                \end{itemize}
+            \subsubsection{Suite de longueur r}
+                Soit A un ensemble fini. Une suite ordonnée de longueur r avec remise
+                constituée d'éléments de A est un r-uplet, r-liste, ($a_1$,...,$a_r$)
+                avec $a_i \in$ A pour tout i appartenant à ${1,...,n}$. L'ensemble A est appelé population.
+            \subsubsection{Théorème}
+                Le nombre de suites de longueurs r avec remise d'une population de cardinalité n est $n^r$
+        \subsection{Permutations}
+            \subsubsection{Principe de dénombrement}
+                Considérons deux expériences aléatoires produisant n et m issues
+                différentes, respectivement. Au total, pout les deux expéreinces
+                aléatoires prises ensembles, il existe nm issues possibles.
+            \subsubsection{Permutation}
+                Soit A un ensemble fini. Une permutatuin de A est une manière
+                d'ordonner les éléments de A.
+            \subsubsection{Théorème}
+                Le nombre de permutations d'une population de cardinalité n est n!
+
+
+        \subsection{Arrangement}
+            \subsubsection{Définition}
+                Soit $A$ un ensemble fini. Un arrangement de $r$ éléments
+                pris parmi $A$ est une suite ordonnée de longueur $r$ 
+                constituée d'élements de $A$ sans remise, i.e, un $r$-uplet
+                ou $r$-liste, $(a_1,...,a_r)$ avec
+                $A\setminus\{a_1,...,a_{i-1}\}$ pour tout $i\in\{1,...,r\}$.
+            \subsubsection{Théorème}
+                Le nombre d'arrangements de $r$ éléments pris parmis $n$ est $(n)_r = A_{n}^{r} =$ $n!\over(n-r)!$
+                
+        \subsection{Combinaisons}
+            \subsubsection{Définition}
+                Soit A un ensemble fini. Une combinaison de $r$ éléments pris parmi A est un sous-ensemble de cardinalité
+                $r$ constitué d'éléments de A sans remise, i.e, $(a_1,...,a_r)$ avec $A\backslash {a_1,...,a_{i-1}}$ 
+                pour tout $i \in {1,...,r}$
+            \subsubsection{Théorème}
+                Le nombre de commbinaison de r éléments pris parmi n est $(_r^n) = C_n^r = n!/((n-r)!r!$
+            \subsubsection{Exemple}
+                Une main au poker estconstituée de 5 cartes distribuées d'un jeu de 52 cartes. Combien y a t-il de mains possibles ?
+                *ordre pas d'importances
+                *n = 52 / r = ?
+                *?
+                
+            \subsubsection{Propositions}
+                Pour tout entier n positif et pour tout r <= n :
+                \begin{itemize}
+                    \item[*] $(_0^n) = 1$
+                    \item[*] $(_r^n) = 0$ si $r < 0$
+                    \item[*] $(_r^n) = (_{n-r}^n)$
+                    \item[*] $(_r^n) = (_r^{n-1})+ (_{r-1}^{n-1})$
+                    \item[*] $(_r^n) =$ $n\over r$$(_{r-1}^{n-1})$ 
+                \end{itemize}
+                
+            \subsubsection{Théorème (Formule du binôme de Newton)}
+                Soient $a$ et $b$ deux réels et $n$ un entier strictement positif\\
+                $(x+y)^n$=$\sum_{k=0}^{n}$$(^n_k)$$a^k$$b^{n-k}$
+            \subsubsection{Théorème (nombre de parties d'un ensemble)}
+                Soit $\Omega$ le nombre de parties de $\Omega$, i.e, la cardinalité de $P(\Omega)$, vaut $2^n$.
+                
+        \subsection{Discernables vs Indiscernables}
+            \subsubsection{Théorème}
+                Considérons $n$ objets parmis lesquels $n_1$ sont
+                indiscernables, $n_2$ sont indiscernables, ..., $n_p$ sont indiscernables.
+                Le nombre de permutations différentes de ces éléments est $n!\over(n_1!n_2!...n_p!)$
+            \subsubsection{Exemple : anagramme}
+                nombre d'anagramme de PROBA ? $5!/(1!1!1!1!1!) = 120$\\
+                nombre d'anagramme de STAT ? $4!/(1!2!1!) = 12$
+            \subsubsection{Théorème}
+                Le nombre de possibilités de distribuer $r$ boules indiscernables dans n boites vaut $(^{n+r-1}_r)$.
+                
+            \subsubsection{Répétions indépendantes}
+                Supposons qu'une expérience aléatoire, modélisée par un univers $\Omega$ et une probabilité $P$, est 
+                répétée $N$ fois. Le nouvel univers est $\Omega^N=\Omega\times...\Omega$ et la probabilité associée
+                est $P^N((\omega_1,...,\omega_N))=P(\omega_1)...P(\omega_N)$
+                
+    \section{Probabilités conditionnelles}
+        \subsection{Probabilité conditionnelle}
+            Etant données deux évènements A et B avec $P(B)>0$, la probabilité conditionelle de A sacahnt que B est réalisé est
+            $P(A \mid B)=P_B(A)$=${P(A \cap B)}\over{P(B)}$ 
+            \begin{itemize}
+                \item[.] La probabilité conditionnelle sachant $B$, $P(.\mid B)$ est une nouvelle probabilité
+                \item[.] Si $P(B)=0$, alors on a usuellement $P(A \mid B)=0$
+                \item[.] $P(A \cap B)=P(A \cap B)P(B)=P(B \cap A)P(A)$ [Erreur sur le slide du prof]
+            \end{itemize}
+                
+        \subsection{évènement indépendant}
+            Deux évênements A et B, où $P(A) \neq 0$ et $P(B) \neq 0$, sont indépendants si l'une des conditions suivantes est satisfaite
+            \begin{itemize}
+                \item[.] $P(A\cap B)=P(A)P(B)$
+                \item[.] $P(A \cap B)=P(A)$
+                \item[.] $P(B \mid A)=P(B)$
+            \end{itemize}
+            \subsubsection{Proposition}
+                Il est équivalent de dire
+                \begin{itemize}
+                    \item[.] $A$ et $B$ sont indépendants
+                    \item[.] $A^C$ et $B$ sont indépendants
+                    \item[.] $A$ et $B^C$ sont indépendants
+                    \item[.] $A^C$ et $B^C$ sont indépendants
+                \end{itemize}
+            \subsubsection{remarque}
+                Deux évênements incompatibles A et B, où $P(A) \neq 0$ et $P(B) \neq 0$, ne sont jamais indépendants.
+                $P(A \mid B)$=${P(A \cap B)}\over{P(B)}$$=0$ car incompatibilité implique $P(A\cap B)=0$
+        \subsection{Famille d'évènements mutuellement indépendants}
+            \subsubsection{Définition}
+                Soient A$_i, i \in I$ où $I$ est un ensemble d'indices possiblement infini, une famille d'évênments.
+                Les évènements A$_i$ sont mutuellement indépendants si et seulement si pour chaque ensemble fini d'indices
+                distincts $i_1,..,i_k \in I$, nous avons
+                $P({A_i}_{1} \cap {A_i}_{2} \cap ... \cap {A_i}_{k}) = P({A_i}_{1})P({A_i}_{2})...P({A_i}_{k})$
+            \subsubsection{Remarque}
+                La condition $P({A_i}_{1} \cap {A_i}_{2} \cap ... \cap {A_i}_{k}) = P({A_i}_{1})P({A_i}_{2})...P({A_i}_{k})$
+                n'applique pas de condition analogue pour toute sous-famille d’evènements.
+        \subsection{Système complet d'évènement}
+            \subsubsection{Définition}
+                Tout famille $A_i, i \in I$, finie ou pas, d'évènements vérifiant les conditions
+                \begin{itemize}
+                    \item[.] A$_i \cap$A$_j=\emptyset$ pour tout $i \neq j$
+                    \item[.] $\cup_{i \in I} A_i=\Omega$
+                    est appelé système complet d'évènements
+                \end{itemize}
+            \subsubsection{Proposition}
+                Soit $A_i, i \in I$, un système complet d'évènements. Alors $P(A)=\sum_{i\in I}P(A\cap A_i)$\\
+                P(A) est calculée par un système complet d'évènemments dans lequel A se réalise.
+            \subsubsection{Théorème des probabilités totales}
+                Soit $A_i, i \in I$ un système complet d'évènements. Alors pour tout évènement A, nous avons
+                $P(A)=\sum_{i \in I}P(A_i)P(A \mid A_i)$
+        \subsection{Formules de Bayes}
+            \subsubsection{Définition}
+                Soit A$_i$, $i \in I$, un système complet d'vènements. Alors pour tout évènement A, nous avons
+                $P(A_k \mid A)=$${P(A \mid A_k)P(A_k)}\over{\sum_{i \in I}P(A \mid A_i)P(A_i)}$
+            \subsubsection{Corollaire}
+                \begin{itemize}
+                    \item[.] $P(A \cap B \cap B \cap C)=P(A)P(B \mid A)(P(C \mid A \cap B)$
+                    \item[.] $P(A \mid B)$=${P(A)P(B \mid A)}\over{P(B)}$=${P(A)P(B \mid A)}\over{P(A)P(B \mid A)+P(A^C)P(B \mid A^C)}$
+                \end{itemize}
+
+    \section{Probabilités conditionnelles}
+    \section{Variables aléatoires discrètes}
+    \section{Couple de variables aléatoires}
+    \section{Estimation et intervalles de confiance}
+    \section{Regression linéaire}
+
+
+\end{document}
