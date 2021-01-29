@@ -1,1 +1,11 @@
-
+Exercice 1 : 
+1- /
+2- Le programme affiche 'Bonjour chez vous !'
+La commande ld sert à créer l'exécutable.
+3- message: db 'Bonjour',10,'chez vous !',10 
+Exercice 2 : 
+1- 80h, eax, ecx, edx, ebx. 
+2- L'instruction int $0x80 permet d'effectuer un appel système.
+3- La fonction INT est utilisé 4 fois.
+4- (plus tard peut être)
+5- 
