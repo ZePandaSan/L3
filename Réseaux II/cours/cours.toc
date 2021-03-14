@@ -1,0 +1,3 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1}La couche physique}{5}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Transmission digitale (baseband)}{6}{subsection.1.1}% 
