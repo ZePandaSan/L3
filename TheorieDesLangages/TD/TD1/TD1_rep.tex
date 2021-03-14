@@ -62,6 +62,31 @@
     CONTRADICTION. \\
     $L$ n'est donc pas un langage rationnel. \\
     \\
+    \url{https://fr.wikipedia.org/wiki/Automate_à_pile#Un_exemple}
 
+    Pour définir l'automate à pile, nous allons définir des règles de transition (q, y, z, p, h) où :
+    \begin{itemize}
+        \item q est l'état de départ
+        \item y est la lettre utilisée
+        \item z est le symbole qu'on dépile
+        \item p est l'état d'arrivé
+        \item h est le symbole qu'on empile
+    \end{itemize}
+
+    Par exemple, soit les 4 règles suivantes :
+    \begin{enumerate}
+        \item (q, a, $\omega$, q, A)
+        \item (q, a, A, q, AA)
+        \item (q, $\epsilon$, A, p, A)
+        \item (p, n, A, p, $\epsilon$)
+    \end{enumerate}
+    
+    La première règle nous dit qu'en prenant 'a' à partir de l'état 'q', on reste en 'q' en n'ayant rien dépilé
+    mais en ayant empilé 'A'.
+    Il n'y a pas d'état final, la reconnaissance du mot se fait par pile vide (sauf le mot vide car $n\geq0$)
+
+    Voici la représentation de l'automate à pile (MERCI WIKIPEDIA) :\\
+    
+    \includegraphics[width=\textwidth]{images/question1_automate.PNG}
 
 \end{document}
