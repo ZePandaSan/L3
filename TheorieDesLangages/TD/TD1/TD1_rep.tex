@@ -38,7 +38,7 @@
 \lstset{style=mystyle}
 
 \title{Théorie des langages II - TD1}
-\author{Wassim SAIDANE}
+\author{Wassim SAIDANE, Anthony BERTRAND}
 \date{}
 
 \begin{document}
@@ -54,7 +54,7 @@
         \item Ce sont les langages obtenus, à partir des lettres et de l'ensemble vide, par les opérations rationnelles, à savoir l'union, le produit et \href{https://fr.wikipedia.org/wiki/Étoile_de_Kleene}{l'étoile de Kleene}, d'où le nom de langages rationnels.
         \item ce sont les langages reconnus par des automates finis, d'où le nom de langages reconnaissables.
     \end{itemize} 
-    Soit le langage $L=\{a^nb^n \mid n \ge 0\}$ sur l'alphabet $A=\{A,B\}$. Supposons \underline{par l'absurde} que $L$ est rationnel. \\
+    Soit le langage $L=\{a^nb^n \mid n \ge 1\}$ sur l'alphabet $A=\{A,B\}$. Supposons \underline{par l'absurde} que $L$ est rationnel. \\
     \href{https://fr.wikipedia.org/wiki/Lemme_de_l%27étoile}{\underline{Par le lemme d'itération}}, $\{\exists x,y,z \mid $w=xyz$\}$, $\mid xy \mid \le p, \mid y \mid \ge 1$ 
     et $\forall i \ge 0, xy'z \in L$. \\
     Comme $\mid xy \mid \supseteq p$, alors $w=a^la^{l'}a^{l''}b^p$ où $x=a^l$, $y=a^{l'}$, $z=a^lb^p$ $l' \ge 1$. Si on applique la proposition 4 ($\forall i \ge 0, xy^iz \in L$ )
@@ -62,9 +62,7 @@
     CONTRADICTION. \\
     $L$ n'est donc pas un langage rationnel. \\
     \\
-    \url{https://fr.wikipedia.org/wiki/Automate_à_pile#Un_exemple}
-
-    Pour définir l'automate à pile, nous allons définir des règles de transition (q, y, z, p, h) où :
+    Pour définir l'\href{https://fr.wikipedia.org/wiki/Automate_à_pile#Un_exemple}{automate à pile}, nous allons définir des règles de transition (q, y, z, p, h) où :
     \begin{itemize}
         \item q est l'état de départ
         \item y est la lettre utilisée
@@ -72,7 +70,7 @@
         \item p est l'état d'arrivé
         \item h est le symbole qu'on empile
     \end{itemize}
-
+    \newpage
     Par exemple, soit les 4 règles suivantes :
     \begin{enumerate}
         \item (q, a, $\omega$, q, A)
@@ -87,6 +85,19 @@
 
     Voici la représentation de l'automate à pile (MERCI WIKIPEDIA) :\\
     
-    \includegraphics[width=\textwidth]{images/question1_automate.PNG}
+    \includegraphics{image/question1_automate.png}
+
+    \section*{Question 2}
+    Montrer que le langage des mots composés avec autant de ‘$a$’ que de ‘$b$’ n’est pas rationnel. Concevoir un automate à pile qui reconnaît ce langage. \\ 
+    \\
+    Soit le langage $L=\{w \in \Sigma^* \mid \lvert w \rvert_a = \lvert w \rvert_b\}$, prenons un entier $n$ quelquonque tel que $\lvert w \rvert \ge n$. \\
+    On considère $\omega=a^{n} . b^{n}=\underbrace{a \ldots a}_{n} . \underbrace{b \ldots b}_{n}$. On a donc $\mid w \mid=2n \ge n$. \\
+    \underline{Par le lemme d'itération}, $\{\exists x,y,z \mid $w=xyz$\}, \mid xy \mid \le n$. On a $w=a^la^{l'}a^{l''}b^n$ où $a=^l, y^{l'}, z=a^lb^n$ avec $Y>0$ puisque $y \neq \epsilon$. \\
+    Prenons $k=2$, on a : $m \stackrel{d e f}{=} x \cdot y^{2} \cdot z=a^{X} \cdot a^{2 y} \cdot a^{z_{1}} \cdot b^{n}$ et 
+    $|m|_{a}=X+2 Y+Z_{1}=\underbrace{X+Y+Z_{1}}_{n}+Y=n+Y \text { et }|m|_{b}=n$. \\
+    Alors $\underbrace{\mid m_a \mid}_{n+Y} \neq \underbrace{\mid m_b \mid}_{n}$ puisque $Y>0$. \\
+    CONTRADICTION \\
+    $L$ n'est donc pas rationnel.
+
 
 \end{document}
