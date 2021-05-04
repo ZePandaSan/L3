@@ -34,4 +34,23 @@ Une structure de tas est un arbre binaire presque complet tel que pour tout noeu
 ![](image/tas.PNG)
 ## Ensemble dynamique
 On appelle **ensemble dynamique** e un ensemble fini d'éléments issus d'un ensemble discret (entiers, chaine de caractères,...) et muni d'une relation d'ordre. 
+
 ![](image/ensemble_dynamique.PNG)
+## Dictionnaire
+On appelle **dictionnaire** un ensemble dynamique d dont on a restreint des opérations : 
+![](image/dic.PNG)
+
+## File de priorité
+Une **file de priorité** est un type abstrait élémentaire permettant de gérer une liste d'éléments muni d'une vlauer appelé clé suivant un ordre de priorité défini sur l'ensemble des clés.
+
+![](image/file_prio.PNG)
+
+## Famille d'ensembles
+Le T.D.A **famille d'ensembles** permet la gestion et la manipulation d'une famille d'ensembles issue d'un ensemble X.
+
+![](image/famille_ensemble.PNG)
+
+## Gestion de partition
+Le T.D.A **gestion de partition** permet la gestion d'une partition dynamique issue d'un ensemble E initial.
+
+![](image/gestion_partition.PNG)
