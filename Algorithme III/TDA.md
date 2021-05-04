@@ -31,3 +31,7 @@ Un **arbre binaire** est un A.B.R si pour tout noeud s, les contenus des noeuds 
 ![Exemple Arbre Binaire de recherche](ABR.PNG)
 ## Structure de tas
 Une structure de tas est un arbre binaire presque complet tel que pour tout noeud n sauf la racine, la valeur affectée au père est supérieur ou égale à celles de ses fils. 
+![Exemple de tas](tas.PNG)
+## Ensemble dynamique
+On appelle **ensemble dynamique** e un ensemble fini d'éléments issus d'un ensemble discret (entiers, chaine de caractères,...) et muni d'une relation d'ordre. 
+![Figure Ensemble dynamique](ensemble_dynamique.PNG)
