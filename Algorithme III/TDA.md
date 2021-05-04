@@ -28,3 +28,6 @@ Une	**file**, dite	aussi file d'attente	(en	anglais	queue),	est	une	structure	de
 	defiler(emfiler(x,creerFile))=(x,creerFile)
 ## Arbre binaire de recherche
 Un **arbre binaire** est un A.B.R si pour tout noeud s, les contenus des noeuds du sous-arbre de gauche sont inférieurs au contenu de s et les contenus du sous-arbre droit sont supérieurs au contenu de s.
+![Exemple Arbre Binaire de recherche](ABR.PNG)
+## Structure de tas
+Une structure de tas est un arbre binaire presque complet tel que pour tout noeud n sauf la racine, la valeur affectée au père est supérieur ou égale à celles de ses fils. 
